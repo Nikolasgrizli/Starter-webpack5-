@@ -13,7 +13,7 @@ include ../utils/includes
     var t = function ($key) {
         return _lara
             ? __($key)
-            : _trans[$key]
+            : _trans[$lang + '.' + $key]
     };
 
     var title = t('home.title')
@@ -21,7 +21,7 @@ include ../utils/includes
 block variables
 
 doctype html
-html(lang= _lara ? _lang : 'nl', data-locale= _lara ? _lang : 'nl')
+html(lang= $lang, data-locale= $lang)
     head
         meta(charset='utf-8')
         meta(http-equiv="x-ua-compatible" content="ie=edge")
