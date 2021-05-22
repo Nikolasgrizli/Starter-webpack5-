@@ -90,8 +90,26 @@ strong,
 
 
 // Components
-@import "components";
-@import "pages";
+@import "components/index";
+@import "pages/index.sass";
 
 // Utils
 @import "utils/utils";
+
+
+
+@media screen and (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+}
+@media (inverted-colors) {
+    img, video {
+        filter: invert(100%);
+    }
+}
+
+
+

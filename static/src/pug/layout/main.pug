@@ -18,6 +18,10 @@ include ../utils/includes
 
     var title = t('home.title')
 
+
+    var headerVisible = true;
+    var footerVisible = true;
+
 block variables
 
 doctype html
@@ -41,11 +45,15 @@ html(lang= $lang, data-locale= $lang)
     body.body
         main.layout(class=pageClass)
             .layout__header
-                +header()
+                if headerVisible
+                    +header()
+                block header
             main.layout__main
                 block content
             .layout__footer
-                +footer()
+                if footerVisible
+                    +footer()
+                block footer
 
         block modals
 

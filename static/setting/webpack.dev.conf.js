@@ -17,7 +17,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         // },
         // useLocalIp: true,
         // disableHostCheck: true,
-        dev: {
+        devMiddleware: {
             writeToDisk: true,
         },
     },
