@@ -1,14 +1,14 @@
 extends ../layout/main
 
 block variables
-    - title = t('home.title');
+    - title = 'title';
     - pageClass = 'main-page';
 
-    - headerVisible = false;
-    - footerVisible = false;
 
 
 block content
+    .container 
+        | title
     //- include ../components/scrollspy
     //- section.intro
     //-     | intro

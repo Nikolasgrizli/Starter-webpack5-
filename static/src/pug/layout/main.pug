@@ -3,20 +3,20 @@ include ../utils/includes
 - var pathPrefix = '/';
 - var description = 'Description';
 - var pageClass = '';
-// for legacy page rules || terms || privacy || cookie
+
 - var pageName = '';
 -
-    var lang = _lang || 'nl'
+    var lang = _lang || 'en'
 
-    var _trans = _lara ?  {} : require("../../../../resources/lang/en.json")
+    //- var _trans = _lara ?  {} : require("../../../../resources/lang/en.json")
 
-    var t = function ($key) {
-        return _lara
-            ? __($key)
-            : _trans[$lang + '.' + $key]
-    };
+    //- var t = function ($key) {
+    //-     return _lara
+    //-         ? __($key)
+    //-         : _trans[$lang + '.' + $key]
+    //- };
 
-    var title = t('home.title')
+    //- var title = t('home.title')
 
 
     var headerVisible = true;
@@ -36,9 +36,6 @@ html(lang= $lang, data-locale= $lang)
         +favicon()
 
         link(rel='stylesheet' href=pathPrefix + 'css/app.css')
-        if _lara
-            meta(name="csrf-token" content = csrf_token())
-        //- link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@animxyz/core@0.4.0/dist/animxyz.min.css')
 
         block head
 
