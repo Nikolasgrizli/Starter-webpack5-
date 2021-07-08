@@ -1,3 +1,5 @@
+
+// first way - classic with css variables
 body {
     --text-color: #222;
     --bkg-color: #fff;
@@ -17,4 +19,40 @@ body.dark-theme {
         --text-color: #222;
         --bkg-color: #fff;
     }
+}
+
+
+// another way ( boolean ) - level up
+// пробел является допустим но невалидным значением
+:root {
+    // --ON и --OFF заменяют двоичную переменную
+    --ON: initial;
+    --OFF: ;
+}
+
+// выбираем светлую тему по умолчанию
+.theme-default,
+.theme-light {
+  --light: var(--ON);
+  --dark: var(--OFF);
+}
+
+.theme-dark {
+    --light: var(--OFF);
+    --dark: var(--ON);
+}
+
+// медиа-запрос теперь нужен только для переключения
+@media (prefers-color-scheme: dark) {
+    .theme-default {
+      --light: var(--OFF);
+      --dark: var(--ON);
+    }
+}
+
+:root {
+    --background: var(--light, #fff) var(--dark, #1b1b1b);
+    --text-color: var(--light, #000) var(--dark, #eaeaea);
+    --link-color: var(--light, #0089c7) var(--dark, #b76c10);
+    --primary-color: var(--light, #165fb9) var(--dark, #8916b9);
 }
