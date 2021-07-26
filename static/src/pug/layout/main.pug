@@ -57,6 +57,8 @@ html(lang= $lang, data-locale= $lang)
 
         block modals
 
+        +lazyImgLoader()
+
         script(type='text/javascript' src=pathPrefix + 'js/vendors.js')
         script(type='text/javascript' src=pathPrefix + 'js/app.js')
         block script
