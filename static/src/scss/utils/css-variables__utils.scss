@@ -38,7 +38,7 @@
 
     [style*='--px#{$bp}:'] {
         padding-right: calc(0.25rem * var(--px#{$bp})) !important;
-        padding-left: calc(0.25rem * var(--px)#{$bp}) !important;
+        padding-left: calc(0.25rem * var(--px#{$bp})) !important;
     }
 
     [style*='--py#{$bp}:'] {
