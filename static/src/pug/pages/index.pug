@@ -1,14 +1,7 @@
-extends ../layout/main
-
-block variables
-    - title = 'title';
-    - pageClass = 'main-page';
+extends ../layout/pagelist
 
 
-
-block content
-    .container 
-        | title
-    //- include ../components/scrollspy
-    //- section.intro
-    //-     | intro
+block pageList
+    -
+        var ProjectTitle = 'Project'
+        var pages = ['main-page','competition-rules-fr']
