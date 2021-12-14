@@ -90,3 +90,6 @@
 @media (min-width: 1024px) {
     @include infinite-spacing-utils($bp: '_lg');
 }
+
+// examples
+// .some-class(style="--px:10;--px_sm:7;--px_md:4;--px_lg:1")
