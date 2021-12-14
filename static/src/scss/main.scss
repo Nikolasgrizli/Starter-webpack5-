@@ -113,6 +113,11 @@ strong,
 }
 
 
+img[width] {
+    height: auto;
+}
+
+
 /// safe-area
 // .cookieNotice {
 //     padding-bottom calc( env(safe-area-inset-bottom) + 20px )
