@@ -11,8 +11,25 @@ mixin img(className, name, ext, alt)
 
 //- +webp('path/name', 'class', 'alt')
 
-mixin webp(path,cls,alt)
-    picture(class!=cls)
-        source(type="image/webp" srcset=`/img/${path}.webp`)
-        source(type="image/jpeg" srcset=`/img/${path}.jpg`)
-        img(src=`/img/${path}.jpg`, alt!=alt)
+mixin newImg(name, options)
+    - options = options || {};
+    - extension = options.ext || 'png';
+    - alternative = options.alt || '';
+    picture
+        source(type="image/webp" srcset=`${pathPrefix}img/${name}.webp`)
+        if options.retina
+            source(type=`image/${extension}` srcset=`${pathPrefix}img/${name}@2x.${extension} 2x`)
+            source(type="image/webp" srcset=`${pathPrefix}img/${name}@2x.webp 2x`)
+        if options.lazy
+            if options.w && options.h
+                img(class!=(options.cls !== '') ? options.cls : '', src=`${pathPrefix}img/${name}.${extension}`, alt!=alternative, draggable="false", loading="lazy", width!=options.w, height!=options.h)
+            else
+                img(class!=(options.cls !== '') ? options.cls : '', src=`${pathPrefix}img/${name}.${extension}`, alt!=alternative, draggable="false", loading="lazy")
+
+        else
+            if options.w && options.h
+                img(class!=(options.cls !== '') ? options.cls : '', src=`${pathPrefix}img/${name}.${extension}`, alt!=alternative, draggable="false", width!=options.w, height!=options.h)
+            else
+                img(class!=(options.cls !== '') ? options.cls : '', src=`${pathPrefix}img/${name}.${extension}`, alt!=alternative, draggable="false")
+
+//- +newImg('intro/main-intro_logo',{cls:'intro__logo', ext: 'png', retina: 1, lazy: 1, w: 870, h: 490})
